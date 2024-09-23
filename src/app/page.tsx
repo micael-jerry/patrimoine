@@ -1,5 +1,6 @@
 import { CustomGraph } from "@/components/customs/CustomGraph";
 import InputForm from "@/components/customs/InputForm";
+import { Log } from "@/components/customs/Log";
 
 export default function Home() {
   return (
@@ -9,12 +10,7 @@ export default function Home() {
           <div className="p-4 border-2 rounded-lg bg-white shadow-md">
             <InputForm />
           </div>
-          <div className="p-4 border-2 rounded-lg bg-white shadow-md h-[400px] overflow-auto">
-            <h2 className="text-lg font-bold mb-4">!! FLUX IMPOSSIBLES !!</h2>
-            <p>[2024-07-14] [BP Crésus & César]</p>
-            <h2 className="text-lg font-bold mt-6">!! FLUX JOURNALIERS !!</h2>
-            <p>[2024-07-10] Myriade Fr=78840</p>
-          </div>
+          <Log />
         </div>
         <div className="p-4 border-2 rounded-lg bg-white shadow-md">
           <h2 className="text-lg font-bold mb-4">Graphique</h2>
