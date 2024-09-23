@@ -1,3 +1,4 @@
+import { CustomGraph } from "@/components/customs/CustomGraph";
 import InputForm from "@/components/customs/InputForm";
 
 export default function Home() {
@@ -18,7 +19,7 @@ export default function Home() {
         <div className="p-4 border-2 border-blue-500 rounded-lg bg-white shadow-md h-[600px]">
           <h2 className="text-lg font-bold mb-4">Graphique</h2>
           <div className="h-full flex items-center justify-center">
-            <p>Ici se trouve le graphique</p>
+            <CustomGraph />
           </div>
         </div>
       </div>
