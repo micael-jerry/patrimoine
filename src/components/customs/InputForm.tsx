@@ -14,25 +14,22 @@ import {
 import { useForm } from "react-hook-form";
 import { InputFormType } from "@/types/input.form.type";
 import { Form, FormControl, FormField, FormItem, FormLabel } from "../ui/form";
+import { useInputFormStore } from "@/store/input.form";
 
 const InputForm = () => {
   const [startDate, setStartDate] = useState<string>("2024-07-01");
   const [endDate, setEndDate] = useState<string>("2024-07-16");
 
+  const { inputForm: inputFormStore, setInputForm: setInputFormStore } =
+    useInputFormStore();
+
   const inputForm = useForm<InputFormType>({
-    defaultValues: {
-      patrimoine: "Cresus",
-      agregat: true,
-      tresorerie: true,
-      immobilisations: true,
-      obligations: true,
-      debut: "2024-07-01",
-      fin: "2024-07-16",
-    },
+    defaultValues: inputFormStore,
   });
 
   const onInputFormSubmit = (data: InputFormType) => {
     console.log(data);
+    setInputFormStore(data);
   };
 
   return (
