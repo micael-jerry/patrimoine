@@ -50,11 +50,11 @@ const InputForm = () => {
                 >
                   <FormControl>
                     <SelectTrigger className="w-[180px]">
-                      <SelectValue placeholder="Crésus" />
+                      <SelectValue placeholder="Patrimoine" />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <SelectItem value="cresus">Crésus</SelectItem>
+                    <SelectItem value="Cresus">Crésus</SelectItem>
                   </SelectContent>
                 </Select>
               </FormItem>
