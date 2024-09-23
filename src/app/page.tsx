@@ -1,4 +1,4 @@
-import Form from "@/components/customs/Form";
+import InputForm from "@/components/customs/InputForm";
 
 export default function Home() {
   return (
@@ -6,7 +6,7 @@ export default function Home() {
       <div className="grid grid-cols-2 gap-4 w-full max-w-6xl">
         <div className="space-y-4">
           <div className="p-4 border-2 border-orange-400 rounded-lg bg-white shadow-md">
-            <Form />
+            <InputForm />
           </div>
           <div className="p-4 border-2 border-blue-500 rounded-lg bg-white shadow-md h-[400px] overflow-auto">
             <h2 className="text-lg font-bold mb-4">!! FLUX IMPOSSIBLES !!</h2>

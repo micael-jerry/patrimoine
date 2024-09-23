@@ -12,13 +12,12 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-const Form = () => {
+const InputForm = () => {
   const [startDate, setStartDate] = useState<string>("2024-07-01");
   const [endDate, setEndDate] = useState<string>("2024-07-16");
 
   return (
     <div className="p-4 bg-gray-100 rounded-lg shadow-md w-full h-full flex flex-col justify-between">
-      {/* Select Patrimoine */}
       <div className="flex justify-between items-center mb-4">
         <div className="text-lg font-semibold">Patrimoine</div>
         <Select>
@@ -79,4 +78,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default InputForm;
