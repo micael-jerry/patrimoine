@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/select";
 import { useForm } from "react-hook-form";
 import { InputFormType } from "@/types/input.form.type";
-import { Form } from "../ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel } from "../ui/form";
 
 const InputForm = () => {
   const [startDate, setStartDate] = useState<string>("2024-07-01");
@@ -39,41 +39,105 @@ const InputForm = () => {
     <div className="p-4 bg-gray-100 rounded-lg shadow-md w-full h-full flex flex-col justify-between">
       <Form {...inputForm}>
         <form onSubmit={inputForm.handleSubmit(onInputFormSubmit)}>
-          <div className="flex justify-between items-center mb-4">
-            <div className="text-lg font-semibold">Patrimoine</div>
-            <Select>
-              <SelectTrigger className="w-[180px]">
-                <SelectValue placeholder="Crésus" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="crésus">Crésus</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
+          <FormField
+            control={inputForm.control}
+            name="patrimoine"
+            render={({ field }) => (
+              <FormItem className="flex justify-between items-center mb-4">
+                <FormLabel className="text-lg font-semibold">
+                  Patrimoine
+                </FormLabel>
+                <Select
+                  onValueChange={field.onChange}
+                  defaultValue={field.value}
+                >
+                  <FormControl>
+                    <SelectTrigger className="w-[180px]">
+                      <SelectValue placeholder="Crésus" />
+                    </SelectTrigger>
+                  </FormControl>
+                  <SelectContent>
+                    <SelectItem value="cresus">Crésus</SelectItem>
+                  </SelectContent>
+                </Select>
+              </FormItem>
+            )}
+          />
           <div className="grid grid-cols-2 gap-4 mb-4">
-            <label className="flex items-center">
-              <Checkbox className="mr-2" defaultChecked />
-              Agrégat
-            </label>
-            <label className="flex items-center">
-              <Checkbox className="mr-2" defaultChecked />
-              Trésorerie
-            </label>
-            <label className="flex items-center">
-              <Checkbox className="mr-2" defaultChecked />
-              Immobilisations
-            </label>
-            <label className="flex items-center">
-              <Checkbox className="mr-2" />
-              Obligations
-            </label>
+            <FormField
+              control={inputForm.control}
+              name="agregat"
+              render={({ field }) => (
+                <FormItem className="flex items-center">
+                  <FormControl>
+                    <Checkbox
+                      className="mr-2"
+                      checked={inputForm.watch("agregat")}
+                      onCheckedChange={field.onChange}
+                    />
+                  </FormControl>
+                  Agrégat
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={inputForm.control}
+              name="tresorerie"
+              render={({ field }) => (
+                <FormItem className="flex items-center">
+                  <FormControl>
+                    <Checkbox
+                      className="mr-2"
+                      checked={inputForm.watch("tresorerie")}
+                      onCheckedChange={field.onChange}
+                    />
+                  </FormControl>
+                  Trésorerie
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={inputForm.control}
+              name="immobilisations"
+              render={({ field }) => (
+                <FormItem className="flex items-center">
+                  <FormControl>
+                    <Checkbox
+                      className="mr-2"
+                      checked={inputForm.watch("immobilisations")}
+                      onCheckedChange={field.onChange}
+                    />
+                  </FormControl>
+                  Immobilisations
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={inputForm.control}
+              name="obligations"
+              render={({ field }) => (
+                <FormItem className="flex items-center">
+                  <FormControl>
+                    <Checkbox
+                      className="mr-2"
+                      checked={inputForm.watch("obligations")}
+                      onCheckedChange={field.onChange}
+                    />
+                  </FormControl>
+                  Obligations
+                </FormItem>
+              )}
+            />
           </div>
           <div className="mb-4">
             <label className="block text-sm font-medium mb-1">De</label>
             <Input
               type="date"
               value={startDate}
-              onChange={(e) => setStartDate(e.target.value)}
+              onChange={(e) => {
+                setStartDate(e.target.value);
+                inputForm.setValue("debut", e.target.value);
+              }}
               className="w-full"
             />
           </div>
@@ -82,7 +146,10 @@ const InputForm = () => {
             <Input
               type="date"
               value={endDate}
-              onChange={(e) => setEndDate(e.target.value)}
+              onChange={(e) => {
+                setEndDate(e.target.value);
+                inputForm.setValue("debut", e.target.value);
+              }}
               className="w-full"
             />
           </div>
